@@ -14,3 +14,5 @@ This work is licensed under the Creative Commons [CC-BY-4.0][CC] license.
 
 In brief, feel free to use this for your own purposes, as long as you credit
 me, and don't restrict others. (Again, read the license for the specifics.)
+
+[CC]: https://creativecommons.org/licenses/by/4.0/ "CC-BY-4.0"
