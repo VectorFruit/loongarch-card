@@ -29,4 +29,3 @@ loongarch-card.pdf: $(SRCDIR)/loongarch-card.adoc
 clean:
 	rm -f loongarch-card.pdf
 	rm -f *.svg
-	rm -rf .asciidoctor

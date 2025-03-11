@@ -1,3 +1,5 @@
 === LoongArch Reference Card
 
 include::base.adoc[]
+
+include::register.adoc[]

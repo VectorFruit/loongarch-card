@@ -1,0 +1,43 @@
+.LA32R Registers
+[cols="2,1,2", options="header"]
+|===
+| Register | ABI Name | Description
+| r0       | zero     | Constant zero
+| r1       | ra       | Return address
+| r2       | tp       | Thread pointer
+| r3       | sp       | Stack pointer
+| r4       | a0       | Argument/return value
+| r5       | a1       | Argument/return value
+| r6       | a2       | Argument register
+| r7       | a3       | Argument register
+| r8       | a4       | Argument register
+| r9       | a5       | Argument register
+| r10      | a6       | Argument register
+| r11      | a7       | Argument register
+| r12      | t0       | Temporary register
+| r13      | t1       | Temporary register
+| r14      | t2       | Temporary register
+| r15      | t3       | Temporary register
+| r16      | t4       | Temporary register
+| r17      | t5       | Temporary register
+| r18      | t6       | Temporary register
+| r19      | t7       | Temporary register
+| r20      | t8       | Temporary register
+| r21      |          | Reserved
+| r22      | fp/s9    | Frame pointer/Static register
+| r23      | s0       | Static register
+| r24      | s1       | Static register
+| r25      | s2       | Static register
+| r26      | s3       | Static register
+| r27      | s4       | Static register
+| r28      | s5       | Static register
+| r29      | s6       | Static register
+| r30      | s7       | Static register
+| r31      | s8       | Static register
+|===
+
+[NOTE]
+====
+Temporary registers are also known as caller-saved registers. +
+Static registers are also known as callee-saved registers.
+====
