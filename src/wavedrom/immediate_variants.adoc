@@ -1,0 +1,79 @@
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'rd', type: 5},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 22,  name: 'opcode', type: 0}
+], config: {label: {right: '2R-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'rd', type: 5},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 5,  name: 'rk/ui5', type: 4},
+  {bits: 17, name: 'opcode', type: 0},
+], config: {label: {right: '3R-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'rd', type: 5},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 5,  name: 'rk', type: 4},
+  {bits: 5,  name: 'ra', type: 6},
+  {bits: 12,  name: 'opcode', type: 0}
+], config: {label: {right: '4R-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'rd', type: 5},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 8,  name: 'I8', type: 3},
+  {bits: 14,  name: 'opcode', type: 0},
+], config: {label: {right: '2RI8-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'rd', type: 5},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 14,  name: 'I14', type: 3},
+  {bits: 8,  name: 'opcode', type: 0},
+], config: {label: {right: '2RI14-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'rd', type: 5},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 16,  name: 'I16', type: 3},
+  {bits: 6,  name: 'opcode', type: 0},
+], config: {label: {right: '2RI16-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5,  name: 'I21[20:16]', type: 3},
+  {bits: 5,  name: 'rj', type: 2},
+  {bits: 16, name: 'I21[15:0]', type: 3},
+  {bits: 6,  name: 'opcode', type: 0},
+], config: {label: {right: '1RI21-Type'}}}
+....
+
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 10, name: 'I26[25:16]', type: 3},
+  {bits: 16, name: 'I26[15:0]',  type: 3},
+  {bits: 6,  name: 'opcode', type: 0},
+], config: {label: {right: 'I26-Type'}}}
+....
+

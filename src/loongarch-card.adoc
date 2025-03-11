@@ -1,0 +1,3 @@
+=== LoongArch Reference Card
+
+include::base.adoc[]
