@@ -1,5 +1,7 @@
-.LA32R Registers
-[cols="2,1,2", options="header"]
+==== LA32R Registers
+
+.LA32R General Purpose Registers
+[cols="1,1,2", options="header"]
 |===
 | Register | ABI Name | Description
 | r0       | zero     | Constant zero

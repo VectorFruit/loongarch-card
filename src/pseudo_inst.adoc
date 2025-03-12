@@ -1,0 +1,19 @@
+==== Pseudo Instructions
+
+.LA32R Pseudo Instructions
+[cols="1,1,2", options="header"]
+|===
+| Pseudoinstruction       | Base Instruction(s)       | Meaning
+| `jr $rx`                | `jirl $r0, rx, 0`         | Jump register
+| `bgt $rx, $ry, label`   | `blt $ry, $rx, label`     | Branch if $rx > $ry
+| `bgtu $rx, $ry, label`  | `bltu $ry, $rx, label`    | Branch if $rx > $ry (unsigned)
+| `ble $rx, $ry, label`   | `bge $ry, $rx, label`     | Branch if $rx <= $ry
+| `bleu $rx, $ry, label`  | `bgeu $ry, $rx, label`    | Branch if $rx <= $ry (unsigned)
+| `bltz $rx, label`       | `blt $rx, $r0, label`     | Branch if $rx < 0
+| `bgtz $rx, label`       | `blt $r0, $rx, label`     | Branch if $rx > 0
+| `blez $rx, label`       | `bge $rx, $r0, label`     | Branch if $rx <= 0
+| `bgez $rx, label`       | `bge $rx, $r0, label`     | Branch if $rx >= 0
+| `li.w $rx, imm`         | Depends on immediate length | Load immediate
+| `move $rx, $ry`         | `or $rx, $ry, $r0`        | Move register
+| `nop`                   | `addi $r0, $r0, 0`        | No operation
+|===
