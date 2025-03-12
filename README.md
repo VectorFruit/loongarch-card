@@ -4,7 +4,7 @@ An ***UNOFFICIAL*** reference sheet for LoongArch32 Reduced ISA, inspired by [ri
 ## What's inside?
 
 > [!CAUTION]
-> This card is still underconstructing! Sill have a bunch of things to do!
+> This card is still under construction! There’s still a lot to be done!
 
 - The base LoongArch32 Reduced ISA, with opcode values and C-like/ Verilog-like descriptions
 - Register aliases and calling conventions
