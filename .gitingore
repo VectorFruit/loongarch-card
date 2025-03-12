@@ -1,0 +1,6 @@
+.*.swp
+.vscode
+src/.asciidoctor
+build/.asciidoctor
+src/diag*
+**/*.bak
