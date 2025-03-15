@@ -34,8 +34,8 @@ include::wavedrom/immediate_variants.adoc[]
 | ANDI      | 2RI14 | `00000011`           | `I14[14:13]=0b01`               | `GR[rd] = GR[rj] & ZEXT(ui12, 32)`
 | ORI       | 2RI14 | `00000011`           | `I14[14:13]=0b10`               | `GR[rd] = GR[rj] \| ZEXT(ui12, 32)`
 | XORI      | 2RI14 | `00000011`           | `I14[14:13]=0b11`               | `GR[rd] = GR[rj] ^ ZEXT(ui12, 32)`
-| LU12I.W   | 1RI21 | `0001010`            |                                 | `GR[rd] = si20 << 12`
-| PCADDU12I | 1RI21 | `0001110`            |                                 | `GR[rd] = PC + SEXT((si20 << 12), 32)`
+| LU12I.W   | 1RI21 | `000101`             | `I21[21] = 0`                   | `GR[rd] = si20 << 12`
+| PCADDU12I | 1RI21 | `000111`             | `I21[21] = 0`                   | `GR[rd] = PC + SEXT((si20 << 12), 32)`
 | LD.B      | 2RI14 | `00101000`           | `I14[14:13]=0b00`               | `GR[rd] = SEXT(M[paddr] [7:0], 32)`
 | LD.H      | 2RI14 | `00101000`           | `I14[14:13]=0b01`               | `GR[rd] = SEXT(M[paddr] [15:0], 32)`
 | LD.W      | 2RI14 | `00101000`           | `I14[14:13]=0b10`               | `GR[rd] = SEXT(M[paddr] [31:0], 32)`
