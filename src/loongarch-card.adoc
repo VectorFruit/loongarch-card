@@ -1,6 +1,13 @@
 === LoongArch Reference Card
 
+==== Core Instruction Formats
+include::wavedrom/immediate_variants.adoc[]
+
+==== LA32R Instruction Formats
+
 include::base.adoc[]
+
+include::priv.adoc[]
 
 include::pseudo_inst.adoc[]
 
