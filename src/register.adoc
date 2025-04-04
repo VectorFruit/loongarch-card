@@ -25,7 +25,7 @@
 | r18      | t6       | Temporary register
 | r19      | t7       | Temporary register
 | r20      | t8       | Temporary register
-| r21      |          | Reserved
+| r21      | -        | Reserved
 | r22      | fp/s9    | Frame pointer/Static register
 | r23      | s0       | Static register
 | r24      | s1       | Static register
@@ -43,3 +43,39 @@
 Temporary registers are also known as caller-saved registers. +
 Static registers are also known as callee-saved registers.
 ====
+
+.LA32R Control and Status Registers
+[cols="1,1,2", options="header"]
+|===
+| Address | Register  | Description
+| 0x0000  | CRMD      | Current Mode Information
+| 0x0001  | PRMD      | Previous Mode Information
+| 0x0002  | EUEN      | Extension Unit Enable
+| 0x0004  | ECFG      | Exception Configuration
+| 0x0005  | ESTAT     | Exception Status
+| 0x0006  | ERA       | Exception Return Address
+| 0x0007  | BADV      | Fault Virtual Address
+| 0x000c  | EENTRY    | Exception Entry Address
+| 0x0010  | TLBIDX    | TLB Index
+| 0x0011  | TLBEHI    | TLB Entry High
+| 0x0012  | TLBELO0   | TLB Entry Low 0
+| 0x0013  | TLBELO1   | TLB Entry Low 1
+| 0x0018  | ASID      | Address Space Identifier
+| 0x0019  | PGDL      | Lower Half Address Space Global Directory Base
+| 0x001a  | PGDH      | Upper Half Address Space Global Directory Base
+| 0x001b  | PGD       | Global Directory Base
+| 0x0020  | CPUID     | Processor ID
+| 0x0030  | SAVE0     | Data Save Register 0
+| 0x0031  | SAVE1     | Data Save Register 1
+| 0x0032  | SAVE2     | Data Save Register 2
+| 0x0033  | SAVE3     | Data Save Register 3
+| 0x0040  | TID       | Timer ID
+| 0x0041  | TCFG      | Timer Configuration
+| 0x0042  | TVAL      | Timer Value
+| 0x0044  | TICLR     | Timer Interrupt Clear
+| 0x0060  | LLBCTL    | LLBit Control
+| 0x0088  | TLBRENTRY | TLB Refill Exception Entry Address
+| 0x0098  | CTAG      | Cache Tag
+| 0x0180  | DMW0      | Direct Mapping Configuration Window 0
+| 0x0181  | DMW1      | Direct Mapping Configuration Window 1
+|===
