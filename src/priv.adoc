@@ -6,13 +6,13 @@
 | CSRWR     | 2RI14 | `00000100`           | `I14 = CSR, rj = 0b00001`       | swap `GR[rd]` and `CSR[csr]`
 | CSRXCHG   | 2RI14 | `00000100`           | `I14 = CSR, rj != 0, 1`         | swap `GR[rd]` and `CSR[csr]`, `GR[rj]` used as CSR wmask
 | CACOP     | 2RI14 | `000001 1000`        | `I14[14:13]` as opcode          | 
-| TLBSRCH   | 2R    | `000001 100100 100000 1010` | `rd, rk = 0b00000`       | 
-| TLBRD     | 2R    | `000001 100100 100000 1011` | `rd, rk = 0b00000`       | 
-| TLBWR     | 2R    | `000001 100100 100000 1100` | `rd, rk = 0b00000`       | 
-| TLBFILL   | 2R    | `000001 100100 100000 1101` | `rd, rk = 0b00000`       |
-| ETRN      | 2R    | `000001 100100 100000 1110` | `rd, rk = 0b00000`       |
-| IDLE      | 3R    | `000001 100100 10001`       | `level = inst[14:0]`     |
-| INVTLB    | 3R    | `000001 100100 10011`       |                          | 
+| TLBSRCH   | 2R    | `000001 1001 00 10000 01010` | `rd, rk = 0b00000`       | 
+| TLBRD     | 2R    | `000001 1001 00 10000 01011` | `rd, rk = 0b00000`       | 
+| TLBWR     | 2R    | `000001 1001 00 10000 01100` | `rd, rk = 0b00000`       | 
+| TLBFILL   | 2R    | `000001 1001 00 10000 01101` | `rd, rk = 0b00000`       |
+| ETRN      | 2R    | `000001 1001 00 10000 01110` | `rd, rk = 0b00000`       |
+| IDLE      | 3R    | `000001 1001 00 10001`       | `level = inst[14:0]`     |
+| INVTLB    | 3R    | `000001 1001 00 10011`       |                          | 
 |===
 
 NOTE: La32r Privilege architecture has two privilege levels: PLV0 and PLV3. For Linux, PLV0 refers to the kernel mode, while PLV3 refers to the user mode. The PLV is stored in the `PLV` field of the `CSR.CRMD` register.
