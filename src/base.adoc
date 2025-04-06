@@ -20,9 +20,9 @@
 | MOD.W rd, rj, rk    | 3R    | `000000 0000 10 00001` | signed                          | `GR[rd] = GR[rj] % GR[rk]`
 | DIV.WU rd, rj, rk   | 3R    | `000000 0000 10 00010` | unsigned                        | `GR[rd] = GR[rj] / GR[rk]`
 | MOD.WU rd, rj, rk   | 3R    | `000000 0000 10 00011` | unsigned                        | `GR[rd] = GR[rj] % GR[rk]`
-| SLLI.W rd, rj, ui5  | 3R    | `000000 0001 00 00001` |                                 | `GR[rd] = GR[rj] << ui5`
-| SRLI.W rd, rj, ui5  | 3R    | `000000 0001 00 01001` |                                 | `GR[rd] = GR[rj] >> ui5`
-| SRAI.W rd, rj, ui5  | 3R    | `000000 0001 00 10001` |                                 | `GR[rd] = GR[rj] >>> ui5`
+| SLLI.W rd, rj, rk(ui5) | 3R    | `000000 0001 00 00001` |                                 | `GR[rd] = GR[rj] << ui5`
+| SRLI.W rd, rj, rk(ui5) | 3R    | `000000 0001 00 01001` |                                 | `GR[rd] = GR[rj] >> ui5`
+| SRAI.W rd, rj, rk(ui5) | 3R    | `000000 0001 00 10001` |                                 | `GR[rd] = GR[rj] >>> ui5`
 | SLTI rd, rj, si12   | 2RI14 | `000000 1000`           | `I14[14:13]` as opcode, signed       | `GR[rd] = GR[rj] < SEXT(si12, 32) ? 1 : 0`
 | SLTUI rd, rj, si12  | 2RI14 | `000000 1001`           | `I14[14:13]` as opcode, unsigned     | `GR[rd] = GR[rj] < SEXT(si12, 32) ? 1 : 0`
 | ADDI.W rd, rj, si12 | 2RI14 | `000000 1010`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] + SEXT(si12, 32)`
