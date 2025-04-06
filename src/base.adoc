@@ -1,55 +1,55 @@
 .LA32R Base Integer Instruction Formats Table
-[cols="1,1,2,2,3", compact, options="header"]
+[cols="2,1,2,2,3", compact, options="header"]
 |===
-| Inst      | FMT   | Opcode                 | NOTE                            | Description
-| ADD.W     | 3R    | `000000 0000 01 00000` |                                 | `GR[rd] = GR[rj] + GR[rk]`
-| SUB.W     | 3R    | `000000 0000 01 00010` |                                 | `GR[rd] = GR[rj] - GR[rk]`
-| SLT       | 3R    | `000000 0000 01 00100` | signed                          | `GR[rd] = GR[rj] < GR[rk] ? 1 : 0`
-| SLTU      | 3R    | `000000 0000 01 00101` | unsigned                        | `GR[rd] = GR[rj] < GR[rk] ? 1 : 0`
-| NOR       | 3R    | `000000 0000 01 01000` |                                 | `GR[rd] = ~(GR[rj] \| GR[rk])`
-| AND       | 3R    | `000000 0000 01 01001` |                                 | `GR[rd] = GR[rj] & GR[rk]`
-| OR        | 3R    | `000000 0000 01 01010` |                                 | `GR[rd] = GR[rj] \| GR[rk]`
-| XOR       | 3R    | `000000 0000 01 01011` |                                 | `GR[rd] = GR[rj] ^ GR[rk]`
-| SLL.W     | 3R    | `000000 0000 01 01110` |                                 | `GR[rd] = GR[rj] << GR[rk] [4:0]`
-| SRL.W     | 3R    | `000000 0000 01 01111` |                                 | `GR[rd] = GR[rj] >> GR[rk] [4:0]`
-| SRA.W     | 3R    | `000000 0000 01 10000` |                                 | `GR[rd] = GR[rj] >>> GR[rk] [4:0]`
-| MUL.W     | 3R    | `000000 0000 01 11000` | result is low signed 32 bits    | `GR[rd] = GR[rj] * GR[rk]`
-| MULH.W    | 3R    | `000000 0000 01 11001` | result is high signed 32 bits   | `GR[rd] = GR[rj] * GR[rk]`
-| MULH.WU   | 3R    | `000000 0000 01 11010` | result is high unsigned 32 bits | `GR[rd] = GR[rj] * GR[rk]`
-| DIV.W     | 3R    | `000000 0000 10 00000` | signed                          | `GR[rd] = GR[rj] / GR[rk]`
-| MOD.W     | 3R    | `000000 0000 10 00001` | signed                          | `GR[rd] = GR[rj] % GR[rk]`
-| DIV.WU    | 3R    | `000000 0000 10 00010` | unsigned                        | `GR[rd] = GR[rj] / GR[rk]`
-| MOD.WU    | 3R    | `000000 0000 10 00011` | unsigned                        | `GR[rd] = GR[rj] % GR[rk]`
-| SLLI.W    | 3R    | `000000 0001 00 00001` |                                 | `GR[rd] = GR[rj] << ui5`
-| SRLI.W    | 3R    | `000000 0001 00 01001` |                                 | `GR[rd] = GR[rj] >> ui5`
-| SRAI.W    | 3R    | `000000 0001 00 10001` |                                 | `GR[rd] = GR[rj] >>> ui5`
-| SLTI      | 2RI14 | `000000 1000`           | `I14[14:13]` as opcode, signed       | `GR[rd] = GR[rj] < SEXT(si12, 32) ? 1 : 0`
-| SLTUI     | 2RI14 | `000000 1001`           | `I14[14:13]` as opcode, unsigned     | `GR[rd] = GR[rj] < SEXT(si12, 32) ? 1 : 0`
-| ADDI.W    | 2RI14 | `000000 1010`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] + SEXT(si12, 32)`
-| ANDI      | 2RI14 | `000000 1101`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] & ZEXT(ui12, 32)`
-| ORI       | 2RI14 | `000000 1110`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] \| ZEXT(ui12, 32)`
-| XORI      | 2RI14 | `000000 1111`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] ^ ZEXT(ui12, 32)`
-| LU12I.W   | 1RI21 | `000101`                | `I21[21] = 0`                   | `GR[rd] = si20 << 12`
-| PCADDU12I | 1RI21 | `000111`                | `I21[21] = 0`                   | `GR[rd] = PC + SEXT((si20 << 12), 32)`
-| LD.B      | 2RI14 | `001010 0000`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [7:0], 32)`
-| LD.H      | 2RI14 | `001010 0001`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [15:0], 32)`
-| LD.W      | 2RI14 | `001010 0010`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [31:0], 32)`
-| ST.B      | 2RI14 | `001010 0100`           | `I14[14:13]` as opcode               | `M[paddr] = GR[rd] [7:0]`
-| ST.H      | 2RI14 | `001010 0101`           | `I14[14:13]` as opcode               | `M[paddr] = GR[rd] [15:0]`
-| ST.W      | 2RI14 | `001010 0110`           | `I14[14:13]` as opcode               | `M[paddr] = GR[rd] [31:0]`
-| LD.BU     | 2RI14 | `001010 1000`           | `I14[14:13]` as opcode               | `GR[rd] = ZEXT(M[paddr] [7:0], 32)`
-| LD.HU     | 2RI14 | `001010 1001`           | `I14[14:13]` as opcode               | `GR[rd] = ZEXT(M[paddr] [15:0], 32)`
-| JIRL      | 2RI16 | `010011`             |                                 | `GR[rd] = PC + 4, PC = GR[rj] + SEXT(si16 << 2, 32)`
-| B         | I26   | `010100`             |                                 | `PC += SEXT(si26 << 2, 32)`
-| BL        | I26   | `010101`             |                                 | `GR[1] = PC + 4, PC += SEXT(si26 << 2, 32)`
-| BEQ       | 2RI16 | `010110`             |                                 | `if (GR[rd] == GR[rj]) PC += SEXT(si16 << 2, 32)`
-| BNE       | 2RI16 | `010111`             |                                 | `if (GR[rd] != GR[rj]) PC += SEXT(si16 << 2, 32)`
-| BLT       | 2RI16 | `011000`             | signed                          | `if (GR[rd] < GR[rj]) PC += SEXT(si16 << 2, 32)`
-| BGE       | 2RI16 | `011001`             | signed                          | `if (GR[rd] >= GR[rj]) PC += SEXT(si16 << 2, 32)`
-| BLTU      | 2RI16 | `011010`             | unsigned                        | `if (GR[rd] < GR[rj]) PC += SEXT(si16 << 2, 32)`
-| BGEU      | 2RI16 | `011011`             | unsigned                        | `if (GR[rd] >= GR[rj]) PC += SEXT(si16 << 2, 32)`
-| BREAK     | 3R    | `000000 0000 10 10100` | `inst[14:0]=code`               | `raise(BREAK)`
-| SYSCALL   | 3R    | `000000 0000 10 10110` | `inst[14:0]=code`               | `raise(SYSCALL)`
+| Inst                | FMT   | Opcode                 | NOTE                            | Description
+| ADD.W rd, rj, rk    | 3R    | `000000 0000 01 00000` |                                 | `GR[rd] = GR[rj] + GR[rk]`
+| SUB.W rd, rj, rk    | 3R    | `000000 0000 01 00010` |                                 | `GR[rd] = GR[rj] - GR[rk]`
+| SLT rd, rj, rk      | 3R    | `000000 0000 01 00100` | signed                          | `GR[rd] = GR[rj] < GR[rk] ? 1 : 0`
+| SLTU rd, rj, rk     | 3R    | `000000 0000 01 00101` | unsigned                        | `GR[rd] = GR[rj] < GR[rk] ? 1 : 0`
+| NOR  rd, rj, rk     | 3R    | `000000 0000 01 01000` |                                 | `GR[rd] = ~(GR[rj] \| GR[rk])`
+| AND  rd, rj, rk     | 3R    | `000000 0000 01 01001` |                                 | `GR[rd] = GR[rj] & GR[rk]`
+| OR   rd, rj, rk     | 3R    | `000000 0000 01 01010` |                                 | `GR[rd] = GR[rj] \| GR[rk]`
+| XOR  rd, rj, rk     | 3R    | `000000 0000 01 01011` |                                 | `GR[rd] = GR[rj] ^ GR[rk]`
+| SLL.W rd, rj, rk    | 3R    | `000000 0000 01 01110` |                                 | `GR[rd] = GR[rj] << GR[rk] [4:0]`
+| SRL.W rd, rj, rk    | 3R    | `000000 0000 01 01111` |                                 | `GR[rd] = GR[rj] >> GR[rk] [4:0]`
+| SRA.W rd, rj, rk    | 3R    | `000000 0000 01 10000` |                                 | `GR[rd] = GR[rj] >>> GR[rk] [4:0]`
+| MUL.W rd, rj, rk    | 3R    | `000000 0000 01 11000` | result is low signed 32 bits    | `GR[rd] = GR[rj] * GR[rk]`
+| MULH.W rd, rj, rk   | 3R    | `000000 0000 01 11001` | result is high signed 32 bits   | `GR[rd] = GR[rj] * GR[rk]`
+| MULH.WU rd, rj, rk  | 3R    | `000000 0000 01 11010` | result is high unsigned 32 bits | `GR[rd] = GR[rj] * GR[rk]`
+| DIV.W rd, rj, rk    | 3R    | `000000 0000 10 00000` | signed                          | `GR[rd] = GR[rj] / GR[rk]`
+| MOD.W rd, rj, rk    | 3R    | `000000 0000 10 00001` | signed                          | `GR[rd] = GR[rj] % GR[rk]`
+| DIV.WU rd, rj, rk   | 3R    | `000000 0000 10 00010` | unsigned                        | `GR[rd] = GR[rj] / GR[rk]`
+| MOD.WU rd, rj, rk   | 3R    | `000000 0000 10 00011` | unsigned                        | `GR[rd] = GR[rj] % GR[rk]`
+| SLLI.W rd, rj, rk   | 3R    | `000000 0001 00 00001` |                                 | `GR[rd] = GR[rj] << ui5`
+| SRLI.W rd, rj, rk   | 3R    | `000000 0001 00 01001` |                                 | `GR[rd] = GR[rj] >> ui5`
+| SRAI.W rd, rj, rk   | 3R    | `000000 0001 00 10001` |                                 | `GR[rd] = GR[rj] >>> ui5`
+| SLTI rd, rj, si12   | 2RI14 | `000000 1000`           | `I14[14:13]` as opcode, signed       | `GR[rd] = GR[rj] < SEXT(si12, 32) ? 1 : 0`
+| SLTUI rd, rj, si12  | 2RI14 | `000000 1001`           | `I14[14:13]` as opcode, unsigned     | `GR[rd] = GR[rj] < SEXT(si12, 32) ? 1 : 0`
+| ADDI.W rd, rj, si12 | 2RI14 | `000000 1010`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] + SEXT(si12, 32)`
+| ANDI rd, rj, ui12   | 2RI14 | `000000 1101`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] & ZEXT(ui12, 32)`
+| ORI rd, rj, ui12    | 2RI14 | `000000 1110`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] \| ZEXT(ui12, 32)`
+| XORI rd, rj, ui12   | 2RI14 | `000000 1111`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] ^ ZEXT(ui12, 32)`
+| LU12I.W rd, si20    | 1RI21 | `000101`                | `I21[21] = 0`                   | `GR[rd] = si20 << 12`
+| PCADDU12I rd, si20  | 1RI21 | `000111`                | `I21[21] = 0`                   | `GR[rd] = PC + SEXT((si20 << 12), 32)`
+| LD.B rd, rj, si12   | 2RI14 | `001010 0000`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [7:0], 32)`
+| LD.H rd, rj, si12   | 2RI14 | `001010 0001`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [15:0], 32)`
+| LD.W rd, rj, si12   | 2RI14 | `001010 0010`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [31:0], 32)`
+| ST.B rd, rj, si12   | 2RI14 | `001010 0100`           | `I14[14:13]` as opcode               | `M[paddr] = GR[rd] [7:0]`
+| ST.H rd, rj, si12   | 2RI14 | `001010 0101`           | `I14[14:13]` as opcode               | `M[paddr] = GR[rd] [15:0]`
+| ST.W rd, rj, si12   | 2RI14 | `001010 0110`           | `I14[14:13]` as opcode               | `M[paddr] = GR[rd] [31:0]`
+| LD.BU rd, rj, si12  | 2RI14 | `001010 1000`           | `I14[14:13]` as opcode               | `GR[rd] = ZEXT(M[paddr] [7:0], 32)`
+| LD.HU rd, rj, si12  | 2RI14 | `001010 1001`           | `I14[14:13]` as opcode               | `GR[rd] = ZEXT(M[paddr] [15:0], 32)`
+| JIRL rd, rj, offset | 2RI16 | `010011`             |                                 | `GR[rd] = PC + 4, PC = GR[rj] + SEXT(si16 << 2, 32)`
+| B offset            | I26   | `010100`             |                                 | `PC += SEXT(si26 << 2, 32)`
+| BL offset           | I26   | `010101`             |                                 | `GR[1] = PC + 4, PC += SEXT(si26 << 2, 32)`
+| BEQ rj, rd, offset  | 2RI16 | `010110`             |                                 | `if (GR[rd] == GR[rj]) PC += SEXT(si16 << 2, 32)`
+| BNE rj, rd, offset  | 2RI16 | `010111`             |                                 | `if (GR[rd] != GR[rj]) PC += SEXT(si16 << 2, 32)`
+| BLT rd, rj, offset  | 2RI16 | `011000`             | signed                          | `if (GR[rd] < GR[rj]) PC += SEXT(si16 << 2, 32)`
+| BGE rd, rj, offset  | 2RI16 | `011001`             | signed                          | `if (GR[rd] >= GR[rj]) PC += SEXT(si16 << 2, 32)`
+| BLTU rd, rj, offset | 2RI16 | `011010`             | unsigned                        | `if (GR[rd] < GR[rj]) PC += SEXT(si16 << 2, 32)`
+| BGEU rd, rj, offset | 2RI16 | `011011`             | unsigned                        | `if (GR[rd] >= GR[rj]) PC += SEXT(si16 << 2, 32)`
+| BREAK code          | 3R    | `000000 0000 10 10100` | `inst[14:0]=code`               | `raise(BREAK)`
+| SYSCALL code        | 3R    | `000000 0000 10 10110` | `inst[14:0]=code`               | `raise(SYSCALL)`
 |===
 
 NOTE: In LA32R Load-Store Instructions, `vaddr = GR[rj] + SEXT(si12, 32), paddr = AddressTranslation(vaddr)`. The `AddressTranslation()` function is implementation defined.
