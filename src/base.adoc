@@ -29,8 +29,8 @@
 | ANDI rd, rj, ui12   | 2RI14 | `000000 1101`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] & ZEXT(ui12, 32)`
 | ORI rd, rj, ui12    | 2RI14 | `000000 1110`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] \| ZEXT(ui12, 32)`
 | XORI rd, rj, ui12   | 2RI14 | `000000 1111`           | `I14[14:13]` as opcode               | `GR[rd] = GR[rj] ^ ZEXT(ui12, 32)`
-| LU12I.W rd, si20    | U     | `000101`                | `I21[21] = 0`, `i21[19:0]` as `si20` | `GR[rd] = si20 << 12`
-| PCADDU12I rd, si20  | U     | `000111`                | `I21[21] = 0`, `i21[19:0]` as `si20` | `GR[rd] = PC + SEXT((si20 << 12), 32)`
+| LU12I.W rd, si20    | U     | `000101`                | `I21[20] = 0`, `i21[19:0]` as `si20` | `GR[rd] = si20 << 12`
+| PCADDU12I rd, si20  | U     | `000111`                | `I21[20] = 0`, `i21[19:0]` as `si20` | `GR[rd] = PC + SEXT((si20 << 12), 32)`
 | LD.B rd, rj, si12   | 2RI14 | `001010 0000`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [7:0], 32)`
 | LD.H rd, rj, si12   | 2RI14 | `001010 0001`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [15:0], 32)`
 | LD.W rd, rj, si12   | 2RI14 | `001010 0010`           | `I14[14:13]` as opcode               | `GR[rd] = SEXT(M[paddr] [31:0], 32)`
