@@ -1,0 +1,40 @@
+name: Build LoongArch-Card
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Pull the latest RISC-V Docs container image
+    # https://github.com/riscv/riscv-docs-base-container-image
+    # https://hub.docker.com/r/riscvintl/riscv-docs-base-container-image
+    - name: Pull Container
+      id: pull_container_image
+      run: |
+        docker pull ghcr.io/ysyx-opendoc/asciidoctor:latest
+
+    # Build PDF and HTML files using the container
+    - name: Build Files
+      id: build_files
+      if: steps.pull_container_image.outcome == 'success'
+      run: |
+        docker run --rm -v ${{ github.workspace }}:/build ghcr.io/ysyx-opendoc/asciidoctor:latest \
+        /bin/sh -c 'cd ./build/build && make'
+
+    # Upload the loongarch_card PDF file
+    - name: Upload loongarch_card.pdf
+      if: steps.build_files.outcome == 'success'
+      uses: actions/upload-artifact@v4
+      with:
+        name: loongarch_card.pdf
+        path: ${{ github.workspace }}/build/loongarch_card.pdf
