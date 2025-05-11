@@ -1,5 +1,11 @@
-# LoongArch Reference Card
+# loongarch-card
+
+[![CI](https://github.com/VectorFruit/loongarch-card/actions/workflows/makefile.yml/badge.svg)](https://github.com/VectorFruit/loongarch-card/actions)
+[![License: MIT](https://img.shields.io/github/license/VectorFruit/loongarch-card.svg)](https://github.com/VectorFruit/loongarch-card/blob/main/LICENSE)
+
 An ***UNOFFICIAL*** reference sheet for LoongArch32 Reduced ISA, inspired by [riscv-card](https://github.com/jameslzhu/riscv-card).
+
+---
 
 ## What's inside?
 
