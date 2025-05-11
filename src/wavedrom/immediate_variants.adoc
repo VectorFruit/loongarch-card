@@ -77,3 +77,12 @@
 ], config: {label: {right: 'I26-Type'}}}
 ....
 
+NOTE: The `U-Type` instruction is not officially defined in the LoongArch ISA specification. It is a variant of the `1RI21` instruction format, which allows for a different encoding of immediate values and using in `lu12i.w` and `pcaddu12i` instructions.  
+[wavedrom, ,svg]
+....
+{reg: [
+  {bits: 5, name: 'rd', type: 5},
+  {bits: 21, name: 'I21',  type: 3},
+  {bits: 6,  name: 'opcode', type: 0},
+], config: {label: {right: 'U-Type'}}}
+....
